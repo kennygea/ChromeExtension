@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Weeb Music Player",
+  "description": "Plays music from weeb playlist on YouTube",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "yotsubato.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["musicplayer.js"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "https://www.youtube.com/*"
+  ],
+  "icons": {
+          "16": "yotsubato-16.png",
+          "48": "yotsubato-48.png",
+          "128": "yotsubato-128.png"
+  },
+  "background": {
+    "scripts": ["musicplayer.js"],
+    "persistent": true
+  },
+  "content_security_policy": "script-src 'self' https://*.youtube.com https://s.ytimg.com/yts/jsbin/www-widgetapi-vflioRwVn/www-widgetapi.js; object-src 'self'"
+
+}
